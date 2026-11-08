@@ -4,16 +4,27 @@
 // - walk 중 캐릭터 실제 그림이 화면 끝(벽)에 완전히 닿으면 headbutt(벽 박치기 → 멍 → 일어나기)
 // - 톡 1번: pat 1.5초 / 꾹 누른 채 끌기: panic 따라다니기 → 놓으면 넘어짐 / 더블톡: 메뉴(onMenu)
 // - 안드로이드 오버레이: 터치는 네이티브 창이 받아 pointer(type,x,y)로 넘김, bounds()로 그림 범위를 알려 터치 영역을 맞춤
-export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () => {}, onMenu = () => {}, onHatched = () => {}}) {
+export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () => {}, onMenu = () => {}, onHatched = () => {}, onPaint}) {
   const ctx = canvas.getContext('2d');
   let M = null, mode = 'normal', sc = scale;
   const cache = {}, boxes = {};
   const img = n => cache[n] || (cache[n] = new Promise(r => { const i = new Image(); i.onload = () => { boxes[n] = bbox(i); r(i); }; i.src = base + 'frames/' + n; }));
   function bbox(im) {   // 그림이 실제로 있는 범위(투명 제외)
     const c = document.createElement('canvas'); c.width = im.width; c.height = im.height; const x = c.getContext('2d'); x.drawImage(im, 0, 0);
-    const d = x.getImageData(0, 0, im.width, im.height).data; let l = im.width, t = im.height, r = 0, b = 0;
-    for (let y = 0; y < im.height; y++) for (let xx = 0; xx < im.width; xx++) if (d[(y * im.width + xx) * 4 + 3] > 20) { if (xx < l) l = xx; if (xx > r) r = xx; if (y < t) t = y; if (y > b) b = y; }
-    return {l, t, r, b};
+    const d = x.getImageData(0, 0, im.width, im.height).data;
+    const solid = {l: im.width, t: im.height, r: 0, b: 0};
+    const painted = {l: im.width, t: im.height, r: 0, b: 0};
+    for (let y = 0; y < im.height; y++) for (let xx = 0; xx < im.width; xx++) {
+      const alpha = d[(y * im.width + xx) * 4 + 3];
+      if (!alpha) continue;
+      painted.l = Math.min(painted.l, xx); painted.r = Math.max(painted.r, xx);
+      painted.t = Math.min(painted.t, y); painted.b = y;
+      if (alpha > 20) {
+        solid.l = Math.min(solid.l, xx); solid.r = Math.max(solid.r, xx);
+        solid.t = Math.min(solid.t, y); solid.b = y;
+      }
+    }
+    return {...solid, painted};
   }
   const W = () => stage.clientWidth, H = () => stage.clientHeight, CW = () => 306 * sc, CH = () => 281 * sc;
   let x = 0, y = 0, face = -1, cur = null, state = 'egg', taps = 0, schedI = 0, nextAt = 0, walk = null, away = 0;   // away: 방금 박은 벽 반대 방향(+1 오른쪽, -1 왼쪽, 0 없음)
@@ -90,6 +101,15 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
     if (!bx) return {l: x, t: y, r: x + CW(), b: y + CH()};
     return {l: x + (face < 0 ? bx.l : 306 - bx.r) * sc, r: x + (face < 0 ? bx.r + 1 : 306 - bx.l) * sc, t: y + bx.t * sc, b: y + (bx.b + 1) * sc};
   }
+  function paintBounds({l, t, r, b}) {
+    if (l > r || t > b) return {l: 0, t: 0, r: 0, b: 0};
+    return {
+      l: x + (face < 0 ? l : 305 - r) * sc,
+      t: y + t * sc,
+      r: x + (face < 0 ? r + 1 : 306 - l) * sc,
+      b: y + (b + 1) * sc,
+    };
+  }
   function fit() {   // 화면 크기·캐릭터 크기가 바뀐 뒤 화면 안으로 되돌림
     if (!M) return;
     if (state === 'egg') { x = (W() - CW()) / 2; ground(); return; }
@@ -122,6 +142,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
       ctx.clearRect(0, 0, 306, 281); ctx.imageSmoothingEnabled = false;
       ctx.save(); if (face > 0) { ctx.translate(306, 0); ctx.scale(-1, 1); } ctx.drawImage(im, 0, 0); ctx.restore();   // 원본 그림은 왼쪽을 봄 → 오른쪽으로 갈 때 좌우 반전
       canvas.style.width = CW() + 'px'; canvas.style.height = CH() + 'px'; canvas.style.left = x + 'px'; canvas.style.top = y + 'px';
+      onPaint?.(paintBounds(boxes[n].painted));
     }
     if (state === 'idle' && t >= nextAt) next();
     requestAnimationFrame(tick);
