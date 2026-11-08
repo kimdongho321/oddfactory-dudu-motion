@@ -25,7 +25,7 @@ public final class MainActivity extends Activity {
   add(column,AppUi.text(this,"화면 위를 돌아다니는 꼬마 공룡 두두. 알을 세 번 톡톡 두드려 깨워 주세요.",16,false),-2);
   add(column,AppUi.button(this,"실행",true,this::execute),64);
   state=AppUi.text(this,"",14,false);add(column,state,-2);
-  add(column,AppUi.muted(this,"톡: 간지럼  ·  꾹 누른 채 끌기: 들어서 옮기기\n더블터치: 설정·종료 메뉴",14),-2);
+  add(column,AppUi.muted(this,"톡: 간지럼  ·  꾹 누른 채 끌기: 들어서 옮기기\n더블터치: 설정·알부터 다시·종료 메뉴",14),-2);
   // 크기 조절
   add(column,AppUi.text(this,"크기",19,true),-2);
   LinearLayout sizeRow=new LinearLayout(this);sizeRow.setOrientation(LinearLayout.HORIZONTAL);sizeRow.setGravity(Gravity.CENTER_VERTICAL);
