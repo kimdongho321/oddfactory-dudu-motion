@@ -40,7 +40,8 @@ def to_glow(a):
         ring = nd.binary_dilation(m, iterations=2) & ~m & al
         whn = (ring & (C['white'] | (_lb > 225))).sum() / max(1, ring.sum())
         _clk = (ring & (C['cloak'] | C['outline'])).sum() / max(1, ring.sum())
-        if whn > 0.55 and _clk < 0.2 and not (m & _out3).any() and _lb[m].mean() > 160:   # 발톱(망토·테두리에 닿음)은 제외
+        _hrn = (ring & C['hair']).sum() / max(1, ring.sum())
+        if whn > 0.55 and _clk < 0.2 and _hrn < 0.25 and not (m & _out3).any() and _lb[m].mean() > 160:   # 머리카락 그늘은 원피스로 보지 않음   # 발톱(망토·테두리에 닿음)은 제외
             C['blue'] &= ~m; C['white'] |= m
     f = a[..., :3].astype(float)
     def put(m, col): out[m, :3] = np.clip(col, 0, 255).astype(np.uint8)
@@ -77,7 +78,7 @@ def to_glow(a):
         m = bll == k
         ring = nd.binary_dilation(m, iterations=2) & ~m & al
         _ay2 = np.where(al.any(1))[0]
-        if m.sum() < 120 and np.where(m)[0].mean() < _ay2.min() + 0.45 * (_ay2.max() - _ay2.min()) and (ring & hairz).sum() > 0.45 * ring.sum() and (ring & C['cloak']).sum() < 0.25 * ring.sum() and not (m & nd.binary_dilation(~al, iterations=3)).any():   # 머리는 위쪽에만(아래 발톱은 제외)
+        if m.sum() < 3000 and np.where(m)[0].mean() < _ay2.min() + 0.45 * (_ay2.max() - _ay2.min()) and (ring & hairz).sum() > 0.45 * ring.sum() and (ring & C['cloak']).sum() < 0.25 * ring.sum() and not (m & nd.binary_dilation(~al, iterations=3)).any():   # 머리는 위쪽에만(아래 발톱은 제외)
             put(m, (lum[m][:, None] / 255.0) * np.array([78, 102, 84]) + np.array([8, 12, 9])); bl = bl & ~m
     # 방울 안의 흰 하이라이트·푸른 그림자(작은 덩어리, 하늘색에 닿음) → 발광
     rr, gg, bb2 = (a[..., i].astype(int) for i in range(3))
@@ -207,9 +208,11 @@ def to_glow(a):
     _ins = al & ~edge1 & ~C['outline']
     _cl = nd.binary_dilation(_ins & (C['cloak'] | C['blue'] | C['orange'] | C['white']), iterations=3)
     _hs = nd.binary_dilation(_ins & (C['hair'] | C['warm']), iterations=3)
-    _ok = edge1 & (_cl | ~_hs)
+    _sk = nd.binary_dilation(_ins & C['warm'], iterations=2) & ~_cl   # 얼굴·다리 피부 가장자리만 제외(머리카락 가장자리는 발광)
+    _ok = edge1 & ~_sk
     _ok = nd.binary_closing(_ok, structure=np.ones((3, 3))) & edge1   # 1~2px 끊김 메우기
-    put(_ok, MINT_D + (MINT_L - MINT_D) * 0.7)
+    _ok2 = nd.binary_dilation(_ok, structure=np.ones((3, 3))) & al & nd.binary_dilation(~al, iterations=2) & ~_sk   # 2px 두께
+    put(_ok2, MINT_D + (MINT_L - MINT_D) * 0.7)
     # 원피스: 흰 천 안의 푸른 역W 선을 찾고, 선으로 갈라진 흰 조각 중 선보다 아래쪽 조각만 발광
     W_ = C['white'] & ~EYEW & ~_cream
     _r, _g, _b = (a[..., i].astype(int) for i in range(3))

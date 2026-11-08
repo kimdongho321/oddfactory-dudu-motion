@@ -3,9 +3,9 @@
   "label": "앱 시작 (알 부화 · 톡톡 3번)",
   "play": "1회",
   "taps": [
-   1,
    7,
-   16
+   16,
+   28
   ],
   "normal": [
    "normal_hatch_0.png",
