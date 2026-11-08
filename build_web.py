@@ -239,6 +239,18 @@ if os.path.exists(os.path.join(_gsrc, 'hatch_egg.png')):   # 앱 시작: 알 →
             nm = f'{mode}_hatch_{i}.png'; im.save(os.path.join(FR, nm)); names.append(nm)
         o[mode] = names; o['ms_' + mode] = [t for _, _, t in seqh]
     o['ms'] = o['ms_normal']; o['taps'] = [1, 7, 13]   # 톡 누르면 재생할 구간 시작(1·2·3번째 터치)
+    _hc = os.path.join(R, 'hatch', 'hatch.json')
+    if os.path.exists(_hc):   # Codex가 만든 알 부화(v3)로 대체(사용자 요청 2026-11-08)
+        hj = json.load(open(_hc, encoding='utf-8'))
+        o = {'label': '앱 시작 (알 부화 · 톡톡 3번)', 'play': '1회', 'taps': hj['taps']}
+        for mode in ('normal', 'glow'):
+            names = []
+            for i in range(len(hj['ms'])):
+                im = Image.open(os.path.join(R, 'hatch', f'h{i:02d}.png')).convert('RGBA')
+                if mode == 'glow': im = Image.fromarray(glowmap.to_glow(np.array(im)))
+                nm = f'{mode}_hatch_{i}.png'; im.save(os.path.join(FR, nm)); names.append(nm)
+            o[mode] = names; o['ms_' + mode] = hj['ms']
+        o['ms'] = o['ms_normal']
     out = {'hatch': o, **out}
 json.dump(out, open(os.path.join(WEB, 'motions.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 G = os.path.join(R, 'gif'); shutil.rmtree(G, ignore_errors=True); os.makedirs(G, exist_ok=True)
