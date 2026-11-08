@@ -13,12 +13,12 @@ import java.lang.ref.WeakReference;
 /** 실행·설정 화면. 두두 더블터치 메뉴의 "설정"도 여기로 온다. */
 public final class MainActivity extends Activity {
  public static boolean visible;private static WeakReference<MainActivity> foreground=new WeakReference<>(null);
- private boolean resumed,pendingStart,waitingForPermission;private TextView state,sizeValue,glowState;private UpdateCheck updates;
+ private boolean resumed,pendingStart,waitingForPermission;private TextView state,sizeValue,glowState;private final com.oddfactory.update.UpdateCheck appUpdates=new com.oddfactory.update.UpdateCheck(this,v->AppUi.fonts(this,v));
  int dp(float n){return AppUi.dp(this,n);}
  boolean allowed(){if(PetOverlayService.current!=null)return true;AccessibilityManager a=getSystemService(AccessibilityManager.class);for(AccessibilityServiceInfo info:a.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK)){android.content.pm.ServiceInfo s=info.getResolveInfo().serviceInfo;if(getPackageName().equals(s.packageName)&&PetOverlayService.class.getName().equals(s.name))return true;}return false;}
  boolean foregroundOwner(){return resumed&&foreground.get()==this&&!isFinishing()&&!isDestroyed();}
  static void overlayConnected(PetOverlayService connected){MainActivity owner=foreground.get();if(owner==null)return;owner.runOnUiThread(()->{if(foreground.get()==owner&&PetOverlayService.current==connected&&owner.foregroundOwner()){owner.startIfReady();owner.refresh();}});}
- public void onCreate(Bundle b){super.onCreate(b);getWindow().setStatusBarColor(AppUi.BG);getWindow().setNavigationBarColor(AppUi.BG);getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);updates=new UpdateCheck(this);
+ public void onCreate(Bundle b){super.onCreate(b);getWindow().setStatusBarColor(AppUi.BG);getWindow().setNavigationBarColor(AppUi.BG);getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
   ScrollView scroll=new ScrollView(this);scroll.setBackgroundColor(AppUi.BG);LinearLayout column=new LinearLayout(this);column.setOrientation(LinearLayout.VERTICAL);column.setPadding(dp(20),dp(18),dp(20),dp(28));column.setBackgroundColor(AppUi.BG);scroll.addView(column);
   scroll.setOnApplyWindowInsetsListener((v,insets)->{if(Build.VERSION.SDK_INT>=30){android.graphics.Insets i=insets.getInsets(WindowInsets.Type.systemBars()|WindowInsets.Type.displayCutout());v.setPadding(i.left,i.top,i.right,i.bottom);}else v.setPadding(insets.getSystemWindowInsetLeft(),insets.getSystemWindowInsetTop(),insets.getSystemWindowInsetRight(),insets.getSystemWindowInsetBottom());return insets;});setContentView(scroll);
   add(column,AppUi.text(this,getString(R.string.app_name),28,true),-2);
@@ -42,12 +42,11 @@ public final class MainActivity extends Activity {
   add(column,glow,-2);glowState=AppUi.muted(this,"",13);add(column,glowState,-2);showGlow();
   // 기타
   add(column,AppUi.button(this,"알부터 다시 보기",false,()->{if(PetOverlayService.current!=null&&PetOverlayService.current.running){PetOverlayService.current.restartEgg();Toast.makeText(this,"두두가 다시 알로 돌아갔어요.",Toast.LENGTH_SHORT).show();}else{Prefs.hatched(this,false);Toast.makeText(this,"다음 실행 때 알부터 시작해요.",Toast.LENGTH_SHORT).show();}}),48);
-  add(column,AppUi.button(this,"업데이트 확인 (현재 "+updates.installedVersion()+")",false,()->updates.check(true)),48);
+  add(column,AppUi.button(this,"업데이트 확인 (현재 "+versionName()+")",false,appUpdates::checkNow),48);
   add(column,AppUi.button(this,"권한 안내",false,this::permissionGuide),48);
   add(column,AppUi.button(this,"글꼴·이용 고지",false,this::licenses),48);
   add(column,AppUi.button(this,"종료 (두두 숨기기)",false,()->{Prefs.enabled(this,false);if(PetOverlayService.current!=null)PetOverlayService.current.stopSession();refresh();}),48);
   add(column,AppUi.muted(this,"트릭컬 팬아트로 만든 비상업 팬메이드 앱이에요.",12),-2);
-  updates.check(false);
  }
  void showSize(){sizeValue.setText(Math.round(Prefs.scale(this)*100)+"%");}
  void showGlow(){String g=Prefs.glow(this);glowState.setText("지금: "+("glow".equals(Prefs.mode(this))?"야광":"일반")+("auto".equals(g)?" (휴대폰 다크 모드 "+(Prefs.systemDark(this)?"켜짐":"꺼짐")+")":""));}
@@ -66,8 +65,9 @@ public final class MainActivity extends Activity {
  void execute(){if(!foregroundOwner())return;pendingStart=true;waitingForPermission=false;if(!allowed()){AlertDialog d=new AlertDialog.Builder(this).setTitle("두두 표시 허용").setMessage("접근성 설정에서 두두를 켜 주세요. 두두 그림과 두두 위의 작은 터치 영역에만 사용하며 다른 앱의 내용은 읽지 않아요.\n\n자세한 내용은 \"권한 안내\"를 눌러 보세요.").setPositiveButton("설정 열기",(v,w)->{waitingForPermission=true;openAccessibility();}).setNegativeButton("나중에",(v,w)->{pendingStart=false;waitingForPermission=false;}).create();d.setOnCancelListener(v->{pendingStart=false;waitingForPermission=false;});d.setOnShowListener(v->AppUi.fonts(this,d.getWindow().getDecorView()));d.show();return;}startIfReady();}
  void startIfReady(){if(!foregroundOwner()||!pendingStart||!allowed())return;PetOverlayService s=PetOverlayService.current;if(s==null){state.setText("표시 연결을 준비하고 있어요.");return;}s.startSession();if(!s.running)return;pendingStart=false;waitingForPermission=false;startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME));}
  void refresh(){if(state==null)return;PetOverlayService s=PetOverlayService.current;state.setText(s!=null&&s.running?"두두가 화면에 나와 있어요.":allowed()?"준비됐어요. 실행을 눌러 주세요.":"처음 한 번 표시 권한을 허용해 주세요.");showGlow();}
- protected void onResume(){super.onResume();visible=true;resumed=true;foreground=new WeakReference<>(this);if(waitingForPermission&&!allowed())pendingStart=false;waitingForPermission=false;if(PetOverlayService.current!=null)PetOverlayService.current.visibility();refresh();startIfReady();}
- protected void onPause(){resumed=false;if(!waitingForPermission)pendingStart=false;if(foreground.get()==this){foreground.clear();visible=false;}if(PetOverlayService.current!=null)PetOverlayService.current.visibility();super.onPause();}
- protected void onDestroy(){pendingStart=false;waitingForPermission=false;if(foreground.get()==this){foreground.clear();visible=false;}updates.close();super.onDestroy();}
+ protected void onResume(){super.onResume();appUpdates.resume();visible=true;resumed=true;foreground=new WeakReference<>(this);if(waitingForPermission&&!allowed())pendingStart=false;waitingForPermission=false;if(PetOverlayService.current!=null)PetOverlayService.current.visibility();refresh();startIfReady();}
+ protected void onPause(){appUpdates.pause();resumed=false;if(!waitingForPermission)pendingStart=false;if(foreground.get()==this){foreground.clear();visible=false;}if(PetOverlayService.current!=null)PetOverlayService.current.visibility();super.onPause();}
+ protected void onDestroy(){pendingStart=false;waitingForPermission=false;if(foreground.get()==this){foreground.clear();visible=false;}super.onDestroy();}
  public void onConfigurationChanged(Configuration c){super.onConfigurationChanged(c);showGlow();}
+ String versionName(){try{return getPackageManager().getPackageInfo(getPackageName(),0).versionName;}catch(Exception e){return "?";}}
 }

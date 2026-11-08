@@ -11,7 +11,7 @@ def stageRuntime=tasks.register('stageRuntime',Exec){
 android {
  namespace 'com.oddfactory.dudu'
  compileSdk 35
- defaultConfig { applicationId 'com.oddfactory.dudu'; minSdk 26; targetSdk 35; versionCode 3; versionName '1.0.2' }
+ defaultConfig { applicationId 'com.oddfactory.dudu'; minSdk 26; targetSdk 35; versionCode 4; versionName '1.0.3' }
  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
  sourceSets.main.assets.setSrcDirs([runtimeAssets])
  sourceSets.main.res.srcDirs += [runtimeRes]
@@ -25,5 +25,5 @@ tasks.register('distApk',Copy){
  dependsOn 'assembleRelease'
  from(layout.buildDirectory.dir('outputs/apk/release')){ include 'app-release.apk' }
  into rootProject.file('dist')
- rename { 'dudu-'+android.defaultConfig.versionName+'.apk' }
+ rename { 'oddfactory-dudu-vc'+android.defaultConfig.versionCode+'-sdk'+android.defaultConfig.minSdk+'.apk' }
 }
