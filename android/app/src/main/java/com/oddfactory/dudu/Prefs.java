@@ -3,7 +3,7 @@ import android.content.*;
 import android.content.res.Configuration;
 /** 저장 설정: 실행 여부, 크기, 야광 모드(auto|normal|glow), 부화 완료 여부. */
 final class Prefs {
- static final float MIN_SCALE=0.3f,MAX_SCALE=1.2f,DEFAULT_SCALE=0.6f;
+ static final float MIN_SCALE=0.3f,MAX_SCALE=1.2f,DEFAULT_SCALE=0.4f;
  static SharedPreferences of(Context c){return c.getSharedPreferences("pet",0);}
  static boolean enabled(Context c){return of(c).getBoolean("enabled",false);}
  static void enabled(Context c,boolean v){of(c).edit().putBoolean("enabled",v).apply();}

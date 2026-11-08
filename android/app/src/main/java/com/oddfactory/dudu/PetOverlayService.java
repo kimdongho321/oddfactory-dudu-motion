@@ -1,31 +1,45 @@
 package com.oddfactory.dudu;
-import android.accessibilityservice.AccessibilityService;
-import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.*;
 import android.content.*;
 import android.content.res.Configuration;
 import android.graphics.*;
 import android.os.*;
 import android.view.*;
-import android.view.accessibility.AccessibilityEvent;
+import android.hardware.input.InputManager;
+import android.provider.Settings;
 import android.webkit.JavascriptInterface;
 import android.widget.*;
 /**
  * 화면 전체 크기의 투명·터치 불가 창(두두 그림) + 두두 그림 위에만 놓는 작은 터치 창.
- * 접근성 서비스는 오버레이 창을 띄우는 데만 쓰고 이벤트는 받지 않는다(eventTypes=0, 창 내용 읽기 없음).
  */
-public final class PetOverlayService extends AccessibilityService {
+public final class PetOverlayService extends Service {
  public static volatile PetOverlayService current;
  final Handler main=new Handler(Looper.getMainLooper());
  WindowManager manager;RuntimeView web;FrameLayout root;WindowManager.LayoutParams params;TouchTargets targets;Rect world;AlertDialog menu;
  boolean running,ready,awake,registered;int session;String mode;
  final BroadcastReceiver screen=new BroadcastReceiver(){public void onReceive(Context c,Intent i){visibility();}};
- protected void onServiceConnected(){current=this;manager=getSystemService(WindowManager.class);AccessibilityServiceInfo info=getServiceInfo();info.eventTypes=0;setServiceInfo(info);if(Prefs.enabled(this))startSession();MainActivity.overlayConnected(this);}
+ @Override public void onCreate(){super.onCreate();current=this;manager=getSystemService(WindowManager.class);}
+ @Override public IBinder onBind(Intent intent){return null;}
+ @Override public int onStartCommand(Intent intent,int flags,int startId){
+  if(!Settings.canDrawOverlays(this)||!Prefs.enabled(this)){stopSelf();return START_NOT_STICKY;}
+  try{startSession();}
+  catch(RuntimeException failure){
+   Prefs.enabled(this,false);
+   closeSession();
+   stopSelf();
+   MainActivity.overlayStartFailed();
+   return START_NOT_STICKY;
+  }
+  MainActivity.overlayConnected(this);
+  return START_STICKY;
+ }
  public void startSession(){if(running){visibility();return;}running=true;ready=false;awake=false;Prefs.enabled(this,true);world=DisplayGeometry.world(manager);session++;foreground();
   final int id=session;mode=Prefs.mode(this);
   root=new FrameLayout(this);root.setBackgroundColor(Color.TRANSPARENT);
   web=new RuntimeView(this,new Host(id),()->{});root.addView(web,new FrameLayout.LayoutParams(world.width(),world.height()));
-  params=new WindowManager.LayoutParams(world.width(),world.height(),WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN|WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,PixelFormat.TRANSLUCENT);
+  params=new WindowManager.LayoutParams(world.width(),world.height(),WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN|WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,PixelFormat.TRANSLUCENT);
+  // Android blocks touches through an opaque, untrusted full-screen window.
+  if(Build.VERSION.SDK_INT>=31)params.alpha=getSystemService(InputManager.class).getMaximumObscuringOpacityForTouch();
   params.gravity=Gravity.TOP|Gravity.LEFT;params.setTitle("com.oddfactory.dudu.overlay");params.x=world.left;params.y=world.top;params.windowAnimations=0;
   if(Build.VERSION.SDK_INT>=30){params.setFitInsetsTypes(0);params.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;}else if(Build.VERSION.SDK_INT>=28)params.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
   if(Build.VERSION.SDK_INT>=34)params.setCanPlayMoveAnimation(false);
@@ -56,15 +70,12 @@ public final class PetOverlayService extends AccessibilityService {
   add(box,"설정",()->startActivity(new Intent(this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)));
   add(box,"알부터 다시",this::restartEgg);
   add(box,"종료",this::stopSession);
-  AlertDialog d=new AlertDialog.Builder(this).setView(box).create();d.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);d.setOnDismissListener(v->{if(menu==d)menu=null;visibility();});menu=d;d.show();d.getWindow().setLayout(Math.min(world.width()-AppUi.dp(this,32),AppUi.dp(this,300)),-2);AppUi.fonts(this,d.getWindow().getDecorView());}
+  AlertDialog d=new AlertDialog.Builder(this).setView(box).create();d.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);d.setOnDismissListener(v->{if(menu==d)menu=null;visibility();});menu=d;d.show();d.getWindow().setLayout(Math.min(world.width()-AppUi.dp(this,32),AppUi.dp(this,300)),-2);AppUi.fonts(this,d.getWindow().getDecorView());}
  void add(LinearLayout box,String text,Runnable task){Button button=AppUi.button(this,text,false,()->{closeMenu();task.run();});LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,-2);p.topMargin=AppUi.dp(this,10);box.addView(button,p);}
- public void stopSession(){Prefs.enabled(this,false);closeSession();}
+ public void stopSession(){Prefs.enabled(this,false);closeSession();stopSelf();}
  void closeSession(){session++;running=false;ready=false;awake=false;closeMenu();main.removeCallbacksAndMessages(null);if(registered){try{unregisterReceiver(screen);}catch(RuntimeException ignored){}registered=false;}if(targets!=null){targets.close();targets=null;}if(root!=null){try{manager.removeView(root);}catch(RuntimeException ignored){}root=null;}if(web!=null){web.stopLoading();web.destroy();web=null;}stopForeground(STOP_FOREGROUND_REMOVE);}
  public void onConfigurationChanged(Configuration c){super.onConfigurationChanged(c);if(!running||web==null)return;
   Rect next=DisplayGeometry.world(manager);if(!next.equals(world)){world=next;closeMenu();if(targets!=null)targets.update(new Rect());params.x=world.left;params.y=world.top;params.width=world.width();params.height=world.height();web.setLayoutParams(new FrameLayout.LayoutParams(world.width(),world.height()));try{manager.updateViewLayout(root,params);}catch(RuntimeException ignored){}web.call("fit()");}
   if(ready&&!Prefs.mode(this).equals(mode))applySettings();}
- public void onAccessibilityEvent(AccessibilityEvent e){}
- public void onInterrupt(){}
- public boolean onUnbind(Intent intent){closeSession();current=null;return super.onUnbind(intent);}
  public void onDestroy(){closeSession();current=null;super.onDestroy();}
 }

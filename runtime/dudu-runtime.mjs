@@ -18,7 +18,10 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
   const W = () => stage.clientWidth, H = () => stage.clientHeight, CW = () => 306 * sc, CH = () => 281 * sc;
   let x = 0, y = 0, face = -1, cur = null, state = 'egg', taps = 0, schedI = 0, nextAt = 0, walk = null, away = 0;   // away: 방금 박은 벽 반대 방향(+1 오른쪽, -1 왼쪽, 0 없음)
   const SCHED = ['idle', 'blank', 'idle', 'sleep', 'idle', 'roar'];
-  const list = m => M[m][mode] || M[m].normal, msOf = (m, i) => (M[m]['ms_' + mode] || M[m].ms)[i] || 100;
+  const modeFor = motion => motion === 'hatch' ? 'normal' : mode;
+  const list = motion => M[motion][modeFor(motion)] || M[motion].normal;
+  const msOf = (motion, i) => (M[motion]['ms_' + modeFor(motion)] || M[motion].ms)[i] || 100;
+  const dragLoopStart = 2, dragLoopEnd = 13;   // 14번 프레임부터 앞으로 넘어지는 전환
   function play(m, o = {}) {
     cur = {m, i: o.from ?? 0, to: o.to ?? list(m).length - 1, loopFrom: o.loopFrom, last: performance.now(), until: o.dur ? performance.now() + o.dur : null, onEnd: o.onEnd};
     onLog(m + (o.note ? ' · ' + o.note : ''));
@@ -42,6 +45,8 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
   }
   function ground() { y = H() - CH() - 30; }
   function hatchStart() {
+    clearTimeout(pressTimer); clearTimeout(tapTimer);
+    dragging = false; lastTap = 0; walk = null;
     x = (W() - CW()) / 2; ground(); face = -1; state = 'egg'; taps = 0; schedI = 0; away = 0;
     const t0 = M.hatch.taps[0]; play('hatch', {from: 0, to: t0 - 1, loopFrom: t0 - 1, note: '알 — 톡 3번'});
   }
@@ -57,7 +62,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
       return;
     }
     if (state === 'hatching') return;
-    pressTimer = setTimeout(() => { dragging = true; state = 'drag'; walk = null; clearTimeout(tapTimer); play('panic', {from: 2, to: 17, loopFrom: 2, note: '꾹 → 허둥지둥'}); }, 380);
+    pressTimer = setTimeout(() => { dragging = true; state = 'drag'; walk = null; clearTimeout(tapTimer); play('panic', {from: dragLoopStart, to: dragLoopEnd, loopFrom: dragLoopStart, note: '꾹 → 허둥지둥'}); }, 380);
   }
   function move(e) {
     if (!dragging) return; const r = stage.getBoundingClientRect();
@@ -65,7 +70,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
   }
   function up(e) {
     clearTimeout(pressTimer);
-    if (dragging) { dragging = false; state = 'motion'; play('panic', {from: 18, note: '놓음 → 넘어짐', onEnd: idle}); return; }
+    if (dragging) { dragging = false; state = 'motion'; play('panic', {from: dragLoopEnd + 1, note: '놓음 → 넘어짐', onEnd: idle}); return; }
     if (!M || state === 'egg' || state === 'hatching' || !hit(e) || performance.now() - pressT > 380) return;
     const now = performance.now();
     if (now - lastTap < 320) { clearTimeout(tapTimer); lastTap = 0; onMenu(); return; }   // 더블톡 → 메뉴
@@ -74,7 +79,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
   }
   function cancel() {   // 터치가 시스템에 의해 취소됨: 끌던 중이면 놓은 것처럼, 아니면 아무 반응 없음
     clearTimeout(pressTimer);
-    if (dragging) { dragging = false; state = 'motion'; play('panic', {from: 18, note: '취소 → 넘어짐', onEnd: idle}); }
+    if (dragging) { dragging = false; state = 'motion'; play('panic', {from: dragLoopEnd + 1, note: '취소 → 넘어짐', onEnd: idle}); }
   }
   stage.addEventListener('pointerdown', down);
   stage.addEventListener('pointermove', move);

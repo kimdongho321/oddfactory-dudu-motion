@@ -4,7 +4,7 @@ assets/
   screen.html, r/overlay.mjs, r/dudu-runtime.mjs   (오버레이 무대 + 공용 동작 로직)
   motions.json, frames/*.png                       (../dist 그대로, motions.json이 참조하는 프레임만)
   fonts/Maplestory-{Bold,Light}.ttf, licenses/maplestory.txt
-res/mipmap-*/ic_launcher.png                       (idle 첫 프레임에서 잘라 만든 런처 아이콘)
+res/                                              (배송 상자 런처 아이콘)
 """
 from pathlib import Path
 import json, shutil, subprocess
@@ -26,16 +26,36 @@ def copy(src: Path, rel: str):
 
 def icon():
     from PIL import Image
-    im = Image.open(PROJECT / 'dist/frames/normal_idle_idle_Ebase.png').convert('RGBA')
-    l, t, r, b = im.getchannel('A').point(lambda a: 255 if a > 20 else 0).getbbox()
-    crop = im.crop((l, t, r, b))
-    side = max(crop.size) + 8
-    square = Image.new('RGBA', (side, side), (248, 243, 232, 255))
-    square.alpha_composite(crop, ((side - crop.width) // 2, (side - crop.height) // 2))
+    with Image.open(ANDROID / 'runtime/launcher-box-128.png') as source:
+        foreground = source.convert('RGBA')
+    assert foreground.size == (128, 128)
+    box = foreground.getchannel('A').getbbox()
+    assert box and 24 <= box[0] < box[2] <= 104 and 24 <= box[1] < box[3] <= 104
+
+    layer = RES / 'drawable-nodpi/of_box_foreground.png'
+    layer.parent.mkdir(parents=True, exist_ok=True)
+    foreground.resize((256, 256), Image.Resampling.NEAREST).save(layer)
+    adaptive = RES / 'mipmap-anydpi-v26/ic_launcher.xml'
+    adaptive.parent.mkdir(parents=True, exist_ok=True)
+    adaptive.write_text(
+        '<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">\n'
+        '    <background android:drawable="@color/of_box_launcher_cream" />\n'
+        '    <foreground android:drawable="@drawable/of_box_foreground" />\n'
+        '</adaptive-icon>\n', encoding='utf-8',
+    )
+    colors = RES / 'values/of_box_launcher_colors.xml'
+    colors.parent.mkdir(parents=True, exist_ok=True)
+    colors.write_text(
+        '<resources><color name="of_box_launcher_cream">#FFF6ED</color></resources>\n',
+        encoding='utf-8',
+    )
+
+    square = Image.new('RGBA', foreground.size, '#FFF6ED')
+    square.alpha_composite(foreground)
     for folder, px in [('mdpi', 48), ('hdpi', 72), ('xhdpi', 96), ('xxhdpi', 144), ('xxxhdpi', 192)]:
         out = RES / f'mipmap-{folder}/ic_launcher.png'
         out.parent.mkdir(parents=True, exist_ok=True)
-        square.resize((px, px), Image.NEAREST).save(out)
+        square.resize((px, px), Image.Resampling.NEAREST).save(out)
 
 
 def build():

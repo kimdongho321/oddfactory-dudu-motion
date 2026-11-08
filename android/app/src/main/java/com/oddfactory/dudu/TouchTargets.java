@@ -24,7 +24,7 @@ final class TouchTargets {
  void apply(){boolean use=visible&&!wanted.isEmpty();
   if(view==null){view=new View(context);view.setBackgroundColor(Color.TRANSPARENT);view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);view.setOnTouchListener((v,e)->touch(e));}
   if(!use){if(layout!=null){try{wm.removeView(view);}catch(RuntimeException ignored){}layout=null;}return;}
-  WindowManager.LayoutParams p=new WindowManager.LayoutParams(wanted.width(),wanted.height(),WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN|WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,PixelFormat.TRANSLUCENT);
+  WindowManager.LayoutParams p=new WindowManager.LayoutParams(wanted.width(),wanted.height(),WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN|WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,PixelFormat.TRANSLUCENT);
   p.gravity=Gravity.TOP|Gravity.LEFT;p.setTitle("com.oddfactory.dudu.input");p.x=wanted.left;p.y=wanted.top;p.windowAnimations=0;
   if(Build.VERSION.SDK_INT>=30){p.setFitInsetsTypes(0);p.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;}else if(Build.VERSION.SDK_INT>=28)p.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
   if(Build.VERSION.SDK_INT>=34)p.setCanPlayMoveAnimation(false);
