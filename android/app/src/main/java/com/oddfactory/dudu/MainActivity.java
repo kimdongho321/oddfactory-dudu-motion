@@ -51,7 +51,7 @@ public final class MainActivity extends Activity {
   glow.setOnCheckedChangeListener((g,id)->{View v=g.findViewById(id);if(v==null)return;Prefs.glow(this,(String)v.getTag());showGlow();if(PetOverlayService.current!=null)PetOverlayService.current.applySettings();});
   add(column,glow,-2);glowState=AppUi.muted(this,"",13);add(column,glowState,-2);showGlow();
   // 기타
-  add(column,AppUi.button(this,"알부터 다시 보기",false,()->{if(PetOverlayService.current!=null&&PetOverlayService.current.running){PetOverlayService.current.restartEgg();Toast.makeText(this,"두두가 다시 알로 돌아갔어요.",Toast.LENGTH_SHORT).show();}else{Prefs.hatched(this,false);Toast.makeText(this,"다음 실행 때 알부터 시작해요.",Toast.LENGTH_SHORT).show();}}),48);
+  add(column,AppUi.button(this,"알부터 다시 보기",false,()->{if(PetOverlayService.current!=null&&PetOverlayService.current.running){PetOverlayService.current.restartEgg();Toast.makeText(this,"두두가 다시 알로 돌아갔어요.",Toast.LENGTH_SHORT).show();}else{Toast.makeText(this,"다음 실행 때 알부터 시작해요.",Toast.LENGTH_SHORT).show();}}),48);
   add(column,AppUi.button(this,"업데이트 확인 (현재 "+versionName()+")",false,appUpdates::checkNow),48);
   add(column,AppUi.button(this,"권한 안내",false,this::permissionGuide),48);
   add(column,AppUi.button(this,"글꼴·이용 고지",false,this::licenses),48);
@@ -97,6 +97,7 @@ public final class MainActivity extends Activity {
    return;
   }
   pendingStart=false;waitingForPermission=false;startingOverlay=false;
+  service.restartEgg();
   startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME));
  }
  void refresh(){if(state==null)return;PetOverlayService s=PetOverlayService.current;state.setText(s!=null&&s.running?"두두가 화면에 나와 있어요.":allowed()?"준비됐어요. 실행을 눌러 주세요.":"처음 한 번 표시 권한을 허용해 주세요.");showGlow();}

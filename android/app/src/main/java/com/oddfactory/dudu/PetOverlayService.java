@@ -43,7 +43,7 @@ public final class PetOverlayService extends Service {
   });
   pet.attach();
   IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_SCREEN_ON);f.addAction(Intent.ACTION_SCREEN_OFF);f.addAction(Intent.ACTION_USER_PRESENT);if(Build.VERSION.SDK_INT>=33)registerReceiver(screen,f,Context.RECEIVER_NOT_EXPORTED);else registerReceiver(screen,f);registered=true;
-  web.loadUrl("https://"+RuntimeView.HOST+"/screen.html?scale="+Prefs.scale(this)+"&mode="+mode+"&hatched="+(Prefs.hatched(this)?1:0));
+  web.loadUrl("https://"+RuntimeView.HOST+"/screen.html?scale="+Prefs.scale(this)+"&mode="+mode);
   visibility();}
  void foreground(){NotificationManager n=getSystemService(NotificationManager.class);n.createNotificationChannel(new NotificationChannel("pet",getString(R.string.app_name),NotificationManager.IMPORTANCE_LOW));PendingIntent open=PendingIntent.getActivity(this,0,new Intent(this,MainActivity.class),PendingIntent.FLAG_IMMUTABLE|PendingIntent.FLAG_UPDATE_CURRENT);Notification notice=new Notification.Builder(this,"pet").setSmallIcon(android.R.drawable.star_on).setContentTitle(getString(R.string.pet_running)).setContentText("두두를 더블터치하면 설정·알부터 다시·종료").setContentIntent(open).setOngoing(true).build();if(Build.VERSION.SDK_INT>=34)startForeground(27,notice,android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);else startForeground(27,notice);}
  /** 화면이 켜지고 잠금이 풀렸을 때만 보인다. 설정 버튼을 가리지 않도록 앱 설정 중에는 창을 숨긴다. */
@@ -55,7 +55,6 @@ public final class PetOverlayService extends Service {
   boolean live(){return running&&session==id&&web!=null;}
   @JavascriptInterface public void ready(){main.post(()->{if(!live())return;ready=true;applySettings();visibility();});}
   @JavascriptInterface public void menu(){main.post(()->{if(live())showMenu();});}
-  @JavascriptInterface public void hatched(){main.post(()->{if(live())Prefs.hatched(PetOverlayService.this,true);});}
   @JavascriptInterface public void bounds(String encoded) {
    if (encoded == null || encoded.length() > 200) return;
    main.post(() -> {
@@ -81,7 +80,7 @@ public final class PetOverlayService extends Service {
  }
  /** 크기·야광 설정을 지금 화면의 두두에 반영. */
  public void applySettings(){if(!running||web==null)return;mode=Prefs.mode(this);web.call("setScale("+Prefs.scale(this)+")");web.call("setMode('"+mode+"')");}
- public void restartEgg(){Prefs.hatched(this,false);if(running&&web!=null)web.call("restart()");}
+ public void restartEgg(){if(running&&ready&&web!=null)web.call("restart()");}
  void closeMenu(){if(menu!=null){AlertDialog d=menu;menu=null;d.dismiss();}}
  void showMenu(){if(!running||!awake)return;closeMenu();if(pet!=null)pet.show(false);
   LinearLayout box=new LinearLayout(this);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(AppUi.dp(this,16),AppUi.dp(this,12),AppUi.dp(this,16),AppUi.dp(this,16));box.setBackgroundColor(AppUi.BG);box.addView(AppUi.text(this,getString(R.string.app_name),22,true));

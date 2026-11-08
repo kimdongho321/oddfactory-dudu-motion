@@ -8,7 +8,6 @@ const dudu = createDudu({
   stage: document.getElementById('stage'), canvas: document.getElementById('cv'), base: '',
   scale: num(q.get('scale'), defaultScale),
   onMenu: () => host?.menu(),
-  onHatched: () => host?.hatched(),
   onPaint({l, t, r, b}) {
     const bounds = [Math.floor(l), Math.floor(t), Math.ceil(r), Math.ceil(b), innerWidth, innerHeight].join(',');
     if (bounds === last) return;
@@ -17,7 +16,6 @@ const dudu = createDudu({
   },
 });
 await dudu.load();
-if (q.get('hatched') === '1') dudu.skipHatch();
 dudu.setMode(q.get('mode') === 'glow' ? 'glow' : 'normal');
 addEventListener('resize', () => dudu.fit());
 window.Dudu = {
@@ -25,7 +23,7 @@ window.Dudu = {
   pointer(type, x, y, w, h) { dudu.pointer(type, x * innerWidth / w, y * innerHeight / h); },
   setScale(s) { dudu.setScale(num(s, defaultScale)); dudu.fit(); last = ''; },
   setMode(m) { dudu.setMode(m === 'glow' ? 'glow' : 'normal'); },
-  restart() { dudu.restart(); },
+  restart() { dudu.restart(); last = ''; },
   fit() { dudu.fit(); last = ''; },
 };
 host?.ready();
