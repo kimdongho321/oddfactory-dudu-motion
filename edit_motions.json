@@ -1,0 +1,831 @@
+{
+ "idle": {
+  "label": "평상시 대기",
+  "play": "반복",
+  "ms": [
+   260,
+   200,
+   200,
+   260,
+   200,
+   200,
+   90,
+   90
+  ],
+  "frames": [
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; standing like the attached pose, nothing else changes."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; her weight shifts onto her screen-left leg: body and head lean a little to the screen-left, hood and hair swing slightly, tail swings to the screen-right."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; body and head lean a little to the screen-left, both hands wave outward a little, tail swings to the screen-right."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; standing upright like the attached pose."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; her weight shifts onto her screen-right leg: body and head lean a little to the screen-right, tail swings up."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; body and head lean a little to the screen-right, both hands wave inward a little, tail tip curls."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; standing upright, her eyes closed as short curved lines (blink)."
+   },
+   {
+    "p": "BOTH HANDS RAISED: she raises both hands up beside her face at cheek height, open human hands with small fingers spread (NOT animal paws, no paw pads, no pink pads on the palms), palms toward the viewer, like a cute 'gao' pose; standing upright, her eyes half closed."
+   }
+  ]
+ },
+ "happy": {
+  "label": "잠금 해제 / 화면 켬",
+  "play": "1회",
+  "ms": [
+   160,
+   130,
+   90,
+   110,
+   110,
+   90,
+   130,
+   100,
+   130,
+   220
+  ],
+  "frames": [
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). her eyes are happy closed ^ ^ lines and she laughs with an open mouth, nothing else changes.",
+    "dy": 0,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, laughing, she squats down to jump: knees deeply bent, body compressed lower, both hands down at her sides.",
+    "dy": 6,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, laughing, she jumps: body stretched upward, legs straight below her and both feet off the ground, both hands thrown up high above her head, hood spikes and tail flipping up.",
+    "dy": -30,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, laughing, in the air at the top of the jump: knees tucked up under her, both hands raised high, cloak flaring out.",
+    "dy": -46,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, laughing, falling: legs stretching down toward the ground, hands still up, cloak and hair floating up.",
+    "dy": -22,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, landing: knees deeply bent, body squashed low and wide, hands coming down, hair and hood bouncing down.",
+    "dy": 4,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, laughing, a small second hop: legs straight, feet just off the ground, hands waving at shoulder height.",
+    "dy": -16,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, landing with knees slightly bent, hands waving.",
+    "dy": 2,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, laughing, standing, both hands waving at shoulder height.",
+    "dy": 0,
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). her eyes are happy ^ ^ lines, nothing else changes.",
+    "dy": 0,
+    "ref": "smile-ref.png"
+   }
+  ]
+ },
+ "pat": {
+  "label": "캐릭터 톡 터치",
+  "play": "반복",
+  "ms": [
+   220,
+   130,
+   160,
+   200,
+   200,
+   200,
+   200,
+   160
+  ],
+  "frames": [
+   {
+    "p": null
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy closed ^ ^ eyes, she is squished down from above as if patted: knees bent, whole body 4 pixels shorter and slightly wider, hood pressed down.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, she plops down to sit on the floor with her legs stretched forward, both hands resting in her lap.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, sitting on the floor with legs stretched forward, her body and head sway to the screen-left.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, sitting on the floor with legs stretched forward, upright, kicking her feet happily.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, sitting on the floor with legs stretched forward, her body and head sway to the screen-right.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). happy ^ ^ eyes, getting up from the floor: kneeling on one knee, one hand on the floor.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "content half-closed eyes, standing back up with knees still slightly bent."
+   }
+  ]
+ },
+ "tickle": {
+  "label": "캐릭터 길게 누름",
+  "play": "반복",
+  "ms": [
+   180,
+   120,
+   120,
+   120,
+   120,
+   120,
+   140,
+   180
+  ],
+  "frames": [
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, laughing with mouth open, shoulders up, knees bending, both hands at her chest.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, laughing hard, she sits down on the floor leaning back, legs bent in front of her, hands hugging her belly.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, laughing, she falls onto her back on the floor, head at the screen-left, both legs bent up in the air at the screen-right, hands on her belly. ORIENTATION LOCK: while lying, her head is always at the screen-LEFT and her feet at the screen-RIGHT, lying on her back facing up; she never flips direction. Exactly two legs.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, laughing, lying on her back, head at the screen-left, legs kicking up at the screen-right (left leg up). ORIENTATION LOCK: while lying, her head is always at the screen-LEFT and her feet at the screen-RIGHT, lying on her back facing up; she never flips direction. Exactly two legs.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, laughing, lying on her back, head at the screen-left, legs kicking up at the screen-right (right leg up). ORIENTATION LOCK: while lying, her head is always at the screen-LEFT and her feet at the screen-RIGHT, lying on her back facing up; she never flips direction. Exactly two legs.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, laughing with tears of joy, lying on her back, head at the screen-left, both legs bent up at the screen-right. ORIENTATION LOCK: while lying, her head is always at the screen-LEFT and her feet at the screen-RIGHT, lying on her back facing up; she never flips direction. Exactly two legs.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: thick ^ ^ arcs; she sits back up on the floor, legs bent in front, catching her breath.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "eyes open, cheerful grin, getting up onto her knees, hands on the floor."
+   }
+  ]
+ },
+ "roar": {
+  "label": "알림 도착",
+  "play": "1회",
+  "ms": [
+   180,
+   160,
+   140,
+   140,
+   110,
+   110,
+   160,
+   200,
+   240
+  ],
+  "frames": [
+   {
+    "p": "her eyes open wide and round in surprise, the hood spikes stand up, standing like the attached pose. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png"
+   },
+   {
+    "p": "eyes wide, she bends her knees slightly, both hands up at her chest. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png"
+   },
+   {
+    "p": "she straightens up, both hands raised to face height in fists, mouth opening, tail raised. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png",
+    "dy": -2
+   },
+   {
+    "p": "big roar exactly like the second attached image: eyes squeezed shut as thick > < chevrons, mouth wide open, both fists raised beside her face, hood spikes bristling. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png",
+    "dy": -2
+   },
+   {
+    "p": "roaring like the second attached image, upper body leaning slightly to the screen-left, fists raised. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png",
+    "dy": -2
+   },
+   {
+    "p": "roaring like the second attached image, upper body leaning slightly to the screen-right, fists raised. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png",
+    "dy": -2
+   },
+   {
+    "p": "she lowers her fists to her chest, fierce grin, eyes open. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png"
+   },
+   {
+    "p": "proud smug grin with narrowed eyes, hands at her chest. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png"
+   },
+   {
+    "p": "BOTH HANDS RAISED beside her face at cheek height like a cute gao pose, smug grin. Her legs stay short and chubby exactly like the second attached image, both feet planted flat, legs not moving.",
+    "ref": "legs-ref.png"
+   }
+  ]
+ },
+ "headbutt": {
+  "label": "알림 밀어서 지움 (박치기 → 넘어져 울기)",
+  "play": "1회",
+  "ms": [
+   180,
+   140,
+   140,
+   70,
+   70,
+   160,
+   120,
+   200,
+   260,
+   240,
+   260,
+   300,
+   300,
+   90,
+   90,
+   300,
+   120,
+   120,
+   120
+  ],
+  "frames": [
+   {
+    "p": "angry determined eyebrows, eyes narrowed, nothing else changes."
+   },
+   {
+    "p": "angry eyes, she pulls back to wind up: leaning back toward the screen-right, knees bent, hands pulled back. The hood stays on her head and the plush cloak stays on her back the whole time.",
+    "dx": 6
+   },
+   {
+    "p": "angry eyes, crouched low like a sprinter, head lowered forward toward the screen-left, hood spikes pointing forward, hands back.",
+    "dx": 4
+   },
+   {
+    "p": "charging toward the screen-left: body leaning far forward, legs running, head first, hood spikes forward, determined face.",
+    "dx": -10
+   },
+   {
+    "p": "charging toward the screen-left, other leg forward, body leaning far forward, head first.",
+    "dx": -20
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: her eyes squeezed shut as THICK dark > < chevron shapes, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). headbutt impact: head first leaning far forward toward the screen-left, eyes squeezed shut as > < lines, mouth open shouting, body squashed.",
+    "dx": -24,
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "knocked back by the impact: her whole body is lifted slightly into the air and flies backward toward the screen-right, both feet off the ground, body tilted back, legs swinging forward, eyes squeezed shut as thick > < chevrons, arms flung forward.",
+    "dx": -16,
+    "dy": -36,
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "she lands on her bottom on the floor, sitting with legs stretched out in front of her, leaning back with both hands on the floor behind her, dazed with eyes squeezed shut, the hood cloak spread behind her.",
+    "dx": -8
+   },
+   {
+    "p": "sitting on the floor with legs stretched out in front, she bursts into tears: TEARY FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): big round dark-brown eyes filled with large shiny white highlights and welling tears, thick dark upper eyelids, worried eyebrows slanting up in the middle, tear drops on the cheeks, mouth wide open crying with a dark red inside and a small fang, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed), both arms reaching out forward.",
+    "dx": -8,
+    "ref": "teary-ref.png"
+   },
+   {
+    "p": "sitting on the floor with legs stretched out, still crying: TEARY FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): big round dark-brown eyes filled with large shiny white highlights and welling tears, thick dark upper eyelids, worried eyebrows slanting up in the middle, tear drops on the cheeks, mouth wide open crying with a dark red inside and a small fang, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed), arms flailing slightly upward.",
+    "dx": -8,
+    "ref": "teary-ref.png"
+   },
+   {
+    "p": "sitting on the floor, sobbing: TEARY FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): big round dark-brown eyes filled with large shiny white highlights and welling tears, thick dark upper eyelids, worried eyebrows slanting up in the middle, tear drops on the cheeks, mouth wide open crying with a dark red inside and a small fang, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed), rubbing one eye with a hand, the other arm at her side.",
+    "dx": -8,
+    "ref": "teary-ref.png"
+   },
+   {
+    "p": "sitting on the floor, sniffling: TEARY FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): big round dark-brown eyes filled with large shiny white highlights and welling tears, thick dark upper eyelids, worried eyebrows slanting up in the middle, tear drops on the cheeks, mouth wide open crying with a dark red inside and a small fang, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed), mouth now a small wobbly pout.",
+    "dx": -8,
+    "ref": "teary-ref.png"
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; dazed: blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, mouth a small open dot.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; dazed blink: keep the THIN floating upper-eyelid arcs exactly where they are, separated above the eyes (do not thicken them); only the WHITE eyeball itself closes: each white eyeball is flattened from the top so only its lower 50% remains visible as a white shape with a dark outline; mouth a small open dot.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; dazed blink: the THIN floating upper-eyelid arcs stay where they are; the white eyeballs are fully closed into short thin curved lines; mouth a small open dot.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil again, her lower lip starting to wobble, about to cry, a tiny tear welling.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; dazed blink: keep the THIN floating upper-eyelid arcs exactly where they are, separated above the eyes (do not thicken them); only the WHITE eyeball itself closes: each white eyeball is flattened from the top so only its lower 75% remains visible as a white shape with a dark outline; mouth a small open dot.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; dazed blink: keep the THIN floating upper-eyelid arcs exactly where they are, separated above the eyes (do not thicken them); only the WHITE eyeball itself closes: each white eyeball is flattened from the top so only its lower 25% remains visible as a white shape with a dark outline; mouth a small open dot.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "sitting on her bottom on the floor after falling, legs stretched out in front of her, leaning back with both hands on the floor behind her, the hood cloak spread behind her; the white blank eyes are starting to fill with shiny tears along the bottom, eyebrows slanting up worried in the middle, lower lip wobbling, about to cry.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   }
+  ]
+ },
+ "eat": {
+  "label": "충전 시작",
+  "play": "반복",
+  "ms": [
+   220,
+   180,
+   160,
+   160,
+   160,
+   160,
+   200,
+   220
+  ],
+  "frames": [
+   {
+    "p": "she sits down on the floor with her legs stretched forward, holding a small glowing green candy stick in both hands, eyes sparkling."
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). sitting on the floor with legs stretched forward, she takes a big bite of the green candy stick, eyes happy ^ ^.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). sitting on the floor, chewing with cheeks puffed out, eyes happy ^ ^, swaying to the screen-left, feet kicking.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). sitting on the floor, chewing with cheeks puffed, eyes happy ^ ^, swaying to the screen-right, feet kicking.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). sitting on the floor, chewing, upright, tail wagging, eyes happy ^ ^.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "sitting on the floor, swallows, satisfied open smile, holding the candy stick up proudly, eyes open."
+   },
+   {
+    "p": "SMILE EYES exactly like the second attached image: her eyes closed as THICK dark upward-curved ^ ^ arcs with a small lash flick at the outer end, a little :3 cat mouth with a pink tongue, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed). sitting on the floor, taking another bite, eyes happy ^ ^, legs kicking.",
+    "ref": "smile-ref.png"
+   },
+   {
+    "p": "sitting on the floor, licking her lips, content, holding the candy stick."
+   }
+  ]
+ },
+ "sad": {
+  "label": "배터리 15% 이하",
+  "play": "반복",
+  "ms": [
+   260,
+   220,
+   260,
+   300,
+   260,
+   300,
+   260,
+   300
+  ],
+  "frames": [
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); standing, shoulders drooping, hood spikes and tail drooping.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); she slowly sits down on the floor, knees bending, drooping.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); sitting on the floor hugging her knees to her chest with both hands, hood drooping over her, tail curled around her.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); sitting hugging her knees, sniffling.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); sitting hugging her knees, rocking slightly to the screen-left.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); sitting hugging her knees, rocking slightly to the screen-right.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); sitting hugging her knees, head tilted down a little.",
+    "ref": "cry-ref.png"
+   },
+   {
+    "p": "CRYING FACE exactly like the second attached image (eyes, eyelids, eyebrows and mouth copied): large round WHITE eyes with a dark outline and no pupils, thick dark upper-eyelid arcs floating slightly above the eyes with a lash flick at the outer end, worried eyebrows slanting up in the middle, tear drops running from the lower eyes, mouth wide open wailing, the same small soft pink blush patches with freckle dots as the original sprite (face skin stays pale, not flushed); sitting hugging her knees, looking up pitifully.",
+    "ref": "cry-ref.png"
+   }
+  ]
+ },
+ "panic": {
+  "label": "캐릭터 잡고 끌어 이동 (허둥지둥)",
+  "play": "1회",
+  "loop_from": 1,
+  "loop_to": 6,
+  "ms": [
+   140,
+   90,
+   90,
+   90,
+   90,
+   90,
+   90,
+   120,
+   110,
+   100,
+   150,
+   170,
+   170,
+   170,
+   170,
+   170,
+   200,
+   240
+  ],
+  "frames": [
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; both hands up beside her face in shock, standing facing front. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; being dragged through the air toward the screen-left: her body tilted toward the screen-left, both arms flailing wildly, the bandaged leg kicking forward and the plain leg back. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs. LEGS: her legs flail and kick alternately one at a time like pedaling in panic; for this frame the NEAR leg (the one with the green bandage, drawn in front) kicks out straight, the FAR leg (no bandage, behind) is bent and tucked. The bandage always stays on the near leg.",
+    "ref": "eyes-blank.png",
+    "dy": -6
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; being dragged through the air toward the screen-left: her body tilted toward the screen-left, both arms flailing wildly, both legs bent and kicking under her. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs. LEGS: her legs flail and kick alternately one at a time like pedaling in panic; for this frame the NEAR leg (bandage) bends back in while the FAR leg starts to kick out. The bandage always stays on the near leg.",
+    "ref": "eyes-blank.png",
+    "dy": -8
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; being dragged through the air toward the screen-left: her body tilted toward the screen-left, both arms flailing wildly, the plain leg kicking forward and the bandaged leg back. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs. LEGS: her legs flail and kick alternately one at a time like pedaling in panic; for this frame the FAR leg (no bandage, behind) kicks out straight, the NEAR leg (bandage) is bent and tucked. The bandage always stays on the near leg.",
+    "ref": "eyes-blank.png",
+    "dy": -6
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; being dragged through the air toward the screen-left: her body tilted toward the screen-left, both arms flailing wildly, arms flailing up the other way, the bandaged leg kicking forward. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs. LEGS: her legs flail and kick alternately one at a time like pedaling in panic; for this frame the FAR leg bends back in while the NEAR leg (bandage) starts to kick out. The bandage always stays on the near leg.",
+    "ref": "eyes-blank.png",
+    "dy": -8
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; being dragged through the air toward the screen-left: her body tilted toward the screen-left, both arms flailing wildly, both legs bent and kicking under her, arms flailing. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs. LEGS: her legs flail and kick alternately one at a time like pedaling in panic; for this frame the NEAR leg (bandage) kicks out straight, the FAR leg is bent and tucked. The bandage always stays on the near leg.",
+    "ref": "eyes-blank.png",
+    "dy": -6
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; being dragged through the air toward the screen-left: her body tilted toward the screen-left, both arms flailing wildly, the plain leg kicking forward, arms flailing. She has exactly TWO legs and TWO hands. HANDS: her LEFT arm is raised on the screen-left side with its open hand above her shoulder, and her RIGHT arm is raised on the screen-right side with its open hand above her shoulder; there is NOTHING in front of her chest or face (no third hand, no extra arm); exactly two hands and two legs. LEGS: her legs flail and kick alternately one at a time like pedaling in panic; for this frame the FAR leg (no bandage) kicks out straight, the NEAR leg (bandage) is bent and tucked. The bandage always stays on the near leg.",
+    "ref": "eyes-blank.png",
+    "dy": -8
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth about as wide as one eye; released: she drops and stumbles forward toward the screen-left, one foot touching the ground, arms thrown forward. She has exactly TWO arms with TWO hands and exactly TWO legs with TWO feet; never a third hand, arm or leg.",
+    "ref": "eyes-blank.png",
+    "dx": -4
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth about as wide as one eye; falling forward toward the screen-left, body diagonal in the air, arms stretched out ahead, both legs behind. She has exactly TWO arms with TWO hands and exactly TWO legs with TWO feet; never a third hand, arm or leg.",
+    "ref": "eyes-blank.png",
+    "dx": -8,
+    "dy": -2
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth about as wide as one eye; about to land: body almost horizontal just above the floor, both hands touching the floor first, both legs behind. She has exactly TWO arms with TWO hands and exactly TWO legs with TWO feet; never a third hand, arm or leg.",
+    "ref": "eyes-blank.png",
+    "dx": -10
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil, small sweat drops, a SMALL open screaming mouth (a little rounded trapezoid about as wide as one eye, dark red inside with a small tongue), not a big mouth; she lands flat on her belly on the floor, arms stretched out in front, both legs behind her lifted a little. She has exactly TWO legs and TWO hands.",
+    "ref": "eyes-blank.png",
+    "dx": -10
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; lying flat on her belly, she lifts her head a little, dazed, both arms on the floor in front, both legs behind. She has exactly TWO arms with TWO hands and exactly TWO legs with TWO feet; never a third hand, arm or leg.",
+    "ref": "eyes-blank.png",
+    "dx": -10
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; lying on her belly, she pushes her upper body up on both arms, dazed, legs still on the floor behind her. She has exactly TWO legs and TWO hands.",
+    "ref": "eyes-blank.png",
+    "dx": -10
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; pushing up on both arms, she pulls both knees forward under her body, dazed. She has exactly TWO arms with TWO hands and exactly TWO legs with TWO feet; never a third hand, arm or leg.",
+    "ref": "eyes-blank.png",
+    "dx": -9
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; she gets up onto her knees, sitting back, both hands on her knees, dazed, a sweat drop. She has exactly TWO legs and TWO hands.",
+    "ref": "eyes-blank.png",
+    "dx": -8
+   },
+   {
+    "p": "rising from kneeling: one foot planted on the floor, the other knee still down, both hands on her knee, eyes turning back to normal golden eyes. She has exactly TWO arms with TWO hands and exactly TWO legs with TWO feet; never a third hand, arm or leg.",
+    "dx": -6
+   },
+   {
+    "p": "standing up with knees still bent, eyes back to normal golden eyes, embarrassed small smile, brushing her dress. She has exactly TWO legs and TWO hands.",
+    "dx": -4
+   },
+   {
+    "p": "both hands raised beside her face like a cute gao pose (open human hands, no paw pads), standing, small embarrassed smile. She has exactly TWO legs and TWO hands.",
+    "dx": 0
+   }
+  ]
+ },
+ "blank": {
+  "label": "10분 이상 조작 없음 (앉아서 손가락 빨기)",
+  "play": "1회 후 반복",
+  "loop_from": 5,
+  "ms": [
+   300,
+   220,
+   200,
+   220,
+   220,
+   180,
+   180,
+   180,
+   180,
+   90,
+   90,
+   180,
+   180
+  ],
+  "frames": [
+   {
+    "p": "both hands raised beside her face like a cute gao pose (open human hands, no paw pads), standing, normal eyes."
+   },
+   {
+    "p": "blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; standing, hands slowly lowering, mouth a small open dot.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: she is halfway sitting down, so her whole body is lower than standing: knees deeply bent, bottom just above the floor, hands reaching behind toward the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor, her whole body is LOWER in the image than in the attached standing sprite: the top of her hood is about one quarter of her standing height lower, her head stays exactly the same size, her bottom rests on the same floor line as the attached sprite's feet. sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; both hands resting on the floor beside her, mouth a small open dot.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor, her whole body is LOWER in the image than in the attached standing sprite: the top of her hood is about one quarter of her standing height lower, her head stays exactly the same size, her bottom rests on the same floor line as the attached sprite's feet. sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a thick dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; one hand rising toward her mouth.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; her body sways very slightly to the screen-left. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; head tilted slightly to the screen-left. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; head tilted slightly to the screen-left, body swaying back. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; slow blink: the eyes stay WHITE blank eyeballs with no iris and no pupil (never golden), only squashed to half height under the thin floating eyelid arcs. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blink: eyes closed as short thin curved lines. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; head upright. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   },
+   {
+    "p": "HEIGHT: because she is sitting on the floor with her legs stretched out in front of her, the hood cloak spread on the floor around her; she keeps sucking the tip of one finger the whole time: the fingertip is placed exactly at the CENTER of her mouth, in the middle of the 'w' (ω) between its two bumps, and her mouth is a small closed cat-like 'w' (ω) shape around the fingertip, NOT an 'o' mouth; the other hand rests on the floor; blank dazed eyes made of THREE separate parts exactly like the attached eye reference: her normal green eyebrows above, a THIN dark curved upper-eyelid arc with a small lash flick floating slightly ABOVE each eyeball with a clear gap, and a large round pure WHITE eyeball outlined in dark with no iris and no pupil; head upright, completely spaced out. CHEEK PRESS: her hand rests against her cheek while the fingertip is in the middle of her mouth, so the cheek is pushed and squished: it bulges a little and two or three short thin curved crease lines appear on the cheek between the blush and the eye, like the skin is pressed.",
+    "ref": "eyes-blank.png"
+   }
+  ]
+ },
+ "sleep": {
+  "label": "취침 모드 / 화면 꺼지기 직전 (엎드려 빼꼼)",
+  "play": "1회 후 반복",
+  "loop_from": 7,
+  "ms": [
+   260,
+   220,
+   200,
+   200,
+   200,
+   220,
+   260,
+   400,
+   400,
+   400,
+   400,
+   400
+  ],
+  "frames": [
+   {
+    "p": "she yawns: eyes closed tightly, mouth wide open, one hand at her mouth, stretching up a little."
+   },
+   {
+    "p": "sleepy half-closed eyes, she sinks down onto her knees, rubbing one eye with a hand, the hood cloak spreading around her."
+   },
+   {
+    "p": "kneeling on the floor, sleepy half-closed eyes, she leans forward and puts both hands on the floor in front of her."
+   },
+   {
+    "p": "on all fours, leaning far forward, her chest lowering toward the floor, the hood cloak sliding forward over her back, sleepy eyes."
+   },
+   {
+    "p": "her chest and belly touch the floor, arms tucking under her, legs still bent behind, the hood cloak covering her back, chin almost on the floor, sleepy eyes.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying almost flat on her belly, the plush hood cloak sliding down to cover her arms and legs, only her face peeking out at the screen-left end, eyes opening.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; settling, the cloak flattening down.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; still.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; breathing in: the cloak is 1 pixel higher.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; breathing out.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; breathing in, the tail tip twitching.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; breathing out, a slow blink with eyes half closed.",
+    "ref": "lying-face-ref.png"
+   }
+  ]
+ },
+ "switch": {
+  "label": "다크모드 켬·끔 / 밝기 전환 (엎드림에서 일어나기)",
+  "play": "1회",
+  "ms": [
+   300,
+   160,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   110,
+   90,
+   120,
+   160,
+   240
+  ],
+  "frames": [
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; still.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "lying flat on her belly on the floor: the big plush hood cloak covers her ENTIRE body like a blanket: no arms, no hands, no legs and no feet visible, only the rounded cloak with its stickers, the blue claw bumps along its bottom hem and the tail; her face rests flat on the floor at the screen-left end under the hood, chin down, and BOTH cheeks (left and right) sag down and touch the floor so the whole bottom edge of her face is pressed flat and squished against the floor; normal daytime colors exactly like the first attached sprite (NOT dark glow colors). FACE exactly like the second attached image: big round open golden-amber eyes with a white sparkle highlight and thick dark upper lashes, small surprised 'o' mouth, round pink blush on both cheeks; startled by a change of light: eyes squeezed shut as thick > < chevrons, the hood spikes twitching. EYES: both golden eyes look straight forward at the viewer, the golden iris fills the whole eye opening exactly like the attached sprite, with no white of the eye around the iris.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "still lying on her belly, she pushes herself up on her arms, the hood still on her head and the cloak still covering her back, eyes blinking open. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off. EYES: both golden eyes look straight forward at the viewer, the golden iris fills the whole eye opening exactly like the attached sprite, with no white of the eye around the iris.",
+    "ref": "lying-face-ref.png"
+   },
+   {
+    "p": "on her knees, upper body raised, both hands on the floor, the hood on her head and the cloak draped over her back, looking around with round open eyes. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off. EYES: both golden eyes look straight forward at the viewer, the golden iris fills the whole eye opening exactly like the attached sprite, with no white of the eye around the iris."
+   },
+   {
+    "p": "sitting up on her knees, rubbing one eye with a hand, small yawn, hood on, cloak draped around her. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off. EYES: both golden eyes look straight forward at the viewer, the golden iris fills the whole eye opening exactly like the attached sprite, with no white of the eye around the iris. CHEEK: the round pink blush with tiny freckle dots on both cheeks is clearly visible, exactly like the attached sprite."
+   },
+   {
+    "p": "kneeling, she puts one foot forward flat on the floor (one knee still on the floor), both hands on her raised knee, hood on, cloak draped behind, eyes open looking at the viewer. CHEEK: the round pink blush with tiny freckle dots on both cheeks is clearly visible, exactly like the attached sprite."
+   },
+   {
+    "p": "pushing herself up from that kneeling position: both feet on the floor, knees deeply bent, hands pushing on her knees, body rising, hood on, cloak draped behind, eyes open. CHEEK: the round pink blush with tiny freckle dots on both cheeks is clearly visible, exactly like the attached sprite."
+   },
+   {
+    "p": "getting up onto her feet, knees still bent, both arms stretching up, hood on, cloak hanging behind her. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off. EYES: both golden eyes look straight forward at the viewer, the golden iris fills the whole eye opening exactly like the attached sprite, with no white of the eye around the iris. CHEEK: the round pink blush with tiny freckle dots on both cheeks is clearly visible, exactly like the attached sprite."
+   },
+   {
+    "p": "she springs up: legs straight, both arms flung wide open, eyes wide open in delight. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off.",
+    "dy": -14
+   },
+   {
+    "p": "in the air, arms wide, cloak and tail flaring out, big open-mouth grin. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off.",
+    "dy": -22
+   },
+   {
+    "p": "landing with knees bent, arms still wide, grinning. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off.",
+    "dy": 4
+   },
+   {
+    "p": "standing, one fist raised proudly, confident grin. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off."
+   },
+   {
+    "p": "BOTH HANDS RAISED (open human hands, no paw pads) beside her face at cheek height like a cute gao pose, standing, smug grin. The hood stays on her head and the plush cloak stays on her the whole time; it is never taken off."
+   }
+  ]
+ },
+ "walk": {
+  "label": "이동(드래그 중·화면 가로질러 이동)",
+  "play": "반복",
+  "ms": [
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130
+  ],
+  "frames": [
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: the BANDAGED leg (the green bandage on its knee) is the front leg: its foot is the one furthest to the screen-left, and the plain leg is the back leg with its foot furthest to the screen-right, front foot just touching the ground.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: the BANDAGED leg (the green bandage on its knee) is the front leg: its foot is the one furthest to the screen-left, and the plain leg is the back leg with its foot furthest to the screen-right, pushing off, both feet slightly off the ground.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: in the air, the two legs passing each other directly under her body, knees bent, feet side by side.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: coming down, the PLAIN leg (no bandage) has swung forward PAST the bandaged leg: the plain leg's foot is now the one furthest to the screen-left, and the bandaged leg (green bandage still on the SAME leg) is the back leg, its foot furthest to the screen-right; the legs are crossed compared to the other step.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: the PLAIN leg (no bandage) has swung forward PAST the bandaged leg: the plain leg's foot is now the one furthest to the screen-left, and the bandaged leg (green bandage still on the SAME leg) is the back leg, its foot furthest to the screen-right; the legs are crossed compared to the other step, front foot just touching the ground.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: the PLAIN leg (no bandage) has swung forward PAST the bandaged leg: the plain leg's foot is now the one furthest to the screen-left, and the bandaged leg (green bandage still on the SAME leg) is the back leg, its foot furthest to the screen-right; the legs are crossed compared to the other step, pushing off, both feet slightly off the ground.",
+    "ref": "squeeze-ref.png"
+   },
+   {
+    "p": "SQUEEZED EYES exactly like the second attached image: thick dark > < chevrons, running happily toward the screen-left in three-quarter view with both arms stretched forward, mouth open, the hood cloak and tail streaming behind her: in the air, the two legs passing each other directly under her body, knees bent, feet side by side.",
+    "ref": "squeeze-ref.png"
+   }
+  ]
+ }
+}

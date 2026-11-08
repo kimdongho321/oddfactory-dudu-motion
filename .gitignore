@@ -1,0 +1,21 @@
+# 구동·빌드에 필요한 것만 올림. 레퍼런스·작업 중간물·테스트 웹·로그는 제외.
+/*
+!/.gitignore
+!/README.md
+!/ANDROID-FEATURES.md
+!/build_web.py
+!/build_v5.py
+!/edit_motion.py
+!/edit_motions.json
+!/codex_import.json
+!/extract_own.py
+!/skinfix.py
+!/glowmap.py
+!/fx_shock.py
+!/stamp_eyes.py
+!/dot_face_marks.py
+!/dist/
+!/android-hatch-20261108/
+/android-hatch-20261108/hatch-art-source.png
+__pycache__/
+*.log

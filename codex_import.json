@@ -1,0 +1,48 @@
+{
+ "tickle": {
+  "times": [
+   90,
+   90,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   60,
+   70,
+   70,
+   90,
+   90
+  ],
+  "variant": "android-glow",
+  "glow": "android-glow-night",
+  "name": "간지럼"
+ },
+ "roar": {
+  "times": [
+   65,
+   95,
+   105,
+   60,
+   45,
+   45,
+   60,
+   65,
+   90,
+   48,
+   48,
+   60,
+   85,
+   80,
+   90,
+   170
+  ],
+  "variant": "motion-pass",
+  "glow": "android-glow-night",
+  "name": "알림 포효"
+ }
+}
