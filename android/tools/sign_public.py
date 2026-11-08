@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = Path(r"C:\Users\ehdrh\Desktop\프로젝트\_release-prep-20261031\performance-resume-r1\drive-update-r1")
 BACKUP = Path("D:/OddFactory-Signing-Backup-20261107")
-os.environ.setdefault("JAVA_HOME", r"C:\Program Files\Android\Android Studio\jbr")
+os.environ["JAVA_HOME"] = r"C:\Program Files\Android\Android Studio\jbr"   # 시스템 JAVA_HOME(JDK 11)은 공개 키(PKCS12 HmacPBESHA256)를 못 읽음 → Java 17+ 사용
 sys.path.insert(0, str(TOOLS))
 from package_apks import sign, verify_signature, digest, run, SDK  # noqa: E402
 
