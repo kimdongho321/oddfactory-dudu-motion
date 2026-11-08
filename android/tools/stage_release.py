@@ -14,7 +14,7 @@ PROJECT = ANDROID.parent
 BUILD = ANDROID / 'app/build/generated'
 ASSETS = BUILD / 'runtimeAssets'
 RES = BUILD / 'runtimeRes'
-FONTS = PROJECT / 'android-hatch-20261108/assets'
+FONTS = ANDROID / 'runtime/fonts'
 
 
 def copy(src: Path, rel: str):
