@@ -16,7 +16,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
     return {l, t, r, b};
   }
   const W = () => stage.clientWidth, H = () => stage.clientHeight, CW = () => 306 * sc, CH = () => 281 * sc;
-  let x = 0, y = 0, face = 1, cur = null, state = 'egg', taps = 0, schedI = 0, nextAt = 0, walk = null, away = 0;   // away: 방금 박은 벽 반대 방향(+1 오른쪽, -1 왼쪽, 0 없음)
+  let x = 0, y = 0, face = -1, cur = null, state = 'egg', taps = 0, schedI = 0, nextAt = 0, walk = null, away = 0;   // away: 방금 박은 벽 반대 방향(+1 오른쪽, -1 왼쪽, 0 없음)
   const SCHED = ['idle', 'blank', 'idle', 'sleep', 'idle', 'roar'];
   const list = m => M[m][mode] || M[m].normal, msOf = (m, i) => (M[m]['ms_' + mode] || M[m].ms)[i] || 100;
   function play(m, o = {}) {
@@ -42,7 +42,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
   }
   function ground() { y = H() - CH() - 30; }
   function hatchStart() {
-    x = (W() - CW()) / 2; ground(); face = 1; state = 'egg'; taps = 0; schedI = 0; away = 0;
+    x = (W() - CW()) / 2; ground(); face = -1; state = 'egg'; taps = 0; schedI = 0; away = 0;
     const t0 = M.hatch.taps[0]; play('hatch', {from: 0, to: t0 - 1, loopFrom: t0 - 1, note: '알 — 톡 3번'});
   }
   // 입력
@@ -83,7 +83,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
   function drawn() {
     const bx = M && cur && boxes[list(cur.m)[Math.min(cur.i, list(cur.m).length - 1)]];
     if (!bx) return {l: x, t: y, r: x + CW(), b: y + CH()};
-    return {l: x + (face > 0 ? bx.l : 306 - bx.r) * sc, r: x + (face > 0 ? bx.r + 1 : 306 - bx.l) * sc, t: y + bx.t * sc, b: y + (bx.b + 1) * sc};
+    return {l: x + (face < 0 ? bx.l : 306 - bx.r) * sc, r: x + (face < 0 ? bx.r + 1 : 306 - bx.l) * sc, t: y + bx.t * sc, b: y + (bx.b + 1) * sc};
   }
   function fit() {   // 화면 크기·캐릭터 크기가 바뀐 뒤 화면 안으로 되돌림
     if (!M) return;
@@ -99,7 +99,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
         const dt = (t - walk.t) / 1000; walk.t = t; x += walk.vx * dt; y += walk.vy * dt;
         const bx = boxes[list(cur.m)[cur.i]];
         if (bx) {   // 실제 그림 가장자리가 화면 끝에 닿았나
-          const L = x + (face > 0 ? bx.l : 306 - bx.r) * sc, R = x + (face > 0 ? bx.r : 306 - bx.l) * sc, T = y + bx.t * sc, B = y + bx.b * sc;
+          const L = x + (face < 0 ? bx.l : 306 - bx.r) * sc, R = x + (face < 0 ? bx.r : 306 - bx.l) * sc, T = y + bx.t * sc, B = y + bx.b * sc;
           if (B > H()) y -= B - H(); if (T < 0) { y -= T; walk.vy = Math.abs(walk.vy); }   // 위·아래는 튕겨서 계속 걷기
           if (B >= H()) walk.vy = -Math.abs(walk.vy);
           if (L <= 0 || R >= W()) {   // 좌우 벽에 완전히 닿음 → 박치기
@@ -115,7 +115,7 @@ export function createDudu({stage, canvas, base = '', scale = 0.9, onLog = () =>
       }
       const n = list(cur.m)[Math.min(cur.i, list(cur.m).length - 1)], im = await img(n);
       ctx.clearRect(0, 0, 306, 281); ctx.imageSmoothingEnabled = false;
-      ctx.save(); if (face < 0) { ctx.translate(306, 0); ctx.scale(-1, 1); } ctx.drawImage(im, 0, 0); ctx.restore();
+      ctx.save(); if (face > 0) { ctx.translate(306, 0); ctx.scale(-1, 1); } ctx.drawImage(im, 0, 0); ctx.restore();   // 원본 그림은 왼쪽을 봄 → 오른쪽으로 갈 때 좌우 반전
       canvas.style.width = CW() + 'px'; canvas.style.height = CH() + 'px'; canvas.style.left = x + 'px'; canvas.style.top = y + 'px';
     }
     if (state === 'idle' && t >= nextAt) next();
