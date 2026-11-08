@@ -1,0 +1,29 @@
+plugins { id 'com.android.application' }
+// 런타임(두두 동작 JS, motions.json, 프레임 PNG, 글꼴, 고지문)은 빌드할 때 tools/stage_release.py가 복사한다. 손으로 고치지 않는다.
+def runtimeAssets=layout.buildDirectory.dir('generated/runtimeAssets')
+def runtimeRes=layout.buildDirectory.dir('generated/runtimeRes')
+def stageRuntime=tasks.register('stageRuntime',Exec){
+ workingDir rootProject.projectDir
+ commandLine 'python',rootProject.file('tools/stage_release.py').absolutePath
+ inputs.dir(rootProject.file('runtime'));inputs.dir(rootProject.file('../dist'));inputs.dir(rootProject.file('../runtime'));inputs.file(rootProject.file('tools/stage_release.py'))
+ outputs.dir(runtimeAssets);outputs.dir(runtimeRes)
+}
+android {
+ namespace 'com.oddfactory.dudu'
+ compileSdk 35
+ defaultConfig { applicationId 'com.oddfactory.dudu'; minSdk 26; targetSdk 35; versionCode 1; versionName '1.0.0' }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+ sourceSets.main.assets.setSrcDirs([runtimeAssets])
+ sourceSets.main.res.srcDirs += [runtimeRes]
+ // JDK17이 없어 Android Studio JBR(Java 25)로 빌드: AGP 8.5 lint가 Java 25에서 실패하므로 릴리스 lintVital만 끈다.
+ lint { checkReleaseBuilds false }
+ buildTypes { release { signingConfig signingConfigs.debug; debuggable false; minifyEnabled true; shrinkResources true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'proguard-rules.pro' } }
+}
+tasks.named('preBuild').configure { dependsOn(stageRuntime) }
+// gradlew distApk → android/dist/dudu-<versionName>.apk
+tasks.register('distApk',Copy){
+ dependsOn 'assembleRelease'
+ from(layout.buildDirectory.dir('outputs/apk/release')){ include 'app-release.apk' }
+ into rootProject.file('dist')
+ rename { 'dudu-'+android.defaultConfig.versionName+'.apk' }
+}

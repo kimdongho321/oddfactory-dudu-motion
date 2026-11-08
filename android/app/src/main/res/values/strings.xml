@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="app_name">두두</string>
+ <string name="pet_running">두두가 화면에 나와 있어요</string>
+ <string name="access_description">두두 그림과 두두 위의 작은 터치 영역만 화면에 표시해요. 다른 앱의 화면과 글자를 읽거나 전체 터치를 수집하지 않아요.</string>
+</resources>

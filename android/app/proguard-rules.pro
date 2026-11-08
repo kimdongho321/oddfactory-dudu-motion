@@ -1,0 +1,3 @@
+-renamesourcefileattribute App
+-keepattributes RuntimeVisibleAnnotations
+-keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }
